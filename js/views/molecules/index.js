@@ -10,13 +10,14 @@ export const HeaderView = () => {
 
 export const NavBarView = arrNavItems => {
     const element = document.createElement('nav')
+    element.className = 'bg-sky-950'
     const ul = Ul('flex')
 
     arrNavItems.forEach(item => {
         const { url, title } = item // Destructure assignment - udskiller egenskaber fra objekt
 
         const li = Li()
-        const item1 = Link(url, title)
+        const item1 = Link(url, title, 'block p-4 text-white')
         li.append(item1)
         ul.append(li)
     })

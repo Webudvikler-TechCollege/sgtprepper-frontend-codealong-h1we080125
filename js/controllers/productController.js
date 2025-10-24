@@ -1,16 +1,15 @@
 import { getList } from "../models/productModel.js";
-import { Paragraph } from "../views/atoms/index.js"
-import { Layout } from "./layoutController.js"
+import { ProductListView } from "../views/organisms/productViews.js";
+import { Layout } from "./layoutController.js";
 
 export const ProductPage = async () => {
-    const { category } = Object.fromEntries(new URLSearchParams(location.search));
+    const { category = 'vand-og-vandrensning' } = Object.fromEntries(new URLSearchParams(location.search));
+
+    // Bygger produkt liste
     const data = await getList(category)
-    console.log(data);
-    
-    
-     
-    const title = "Se vores produkter"
-    const p = Paragraph()
-    p.innerText = "Liste over produkter"
-    return Layout(title, p)
+    const html = ProductListView(data)
+
+    // Samler og returnerer side layoutet
+    const layout = Layout('Produkter', html)    
+    return layout
 }
