@@ -26,9 +26,6 @@ export const ProductListView = (products) => {
 
         div.append(cost)
 
-
-
-
         element.append(div)
     });
 
