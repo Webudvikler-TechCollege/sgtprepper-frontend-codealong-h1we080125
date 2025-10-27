@@ -1,4 +1,4 @@
-import { Heading, Li, Link, Ul } from "../atoms/index.js"
+import { Heading, Li, Link, Paragraph, Ul } from "../atoms/index.js"
 
 export const HeaderView = () => {
     const element = document.createElement('header')
@@ -17,7 +17,7 @@ export const NavBarView = arrNavItems => {
         const { url, title } = item // Destructure assignment - udskiller egenskaber fra objekt
 
         const li = Li()
-        const item1 = Link(url, title, 'block p-4 text-white')
+        const item1 = Link(url, title, `block p-4 ${item.textColor}`)
         li.append(item1)
         ul.append(li)
     })
