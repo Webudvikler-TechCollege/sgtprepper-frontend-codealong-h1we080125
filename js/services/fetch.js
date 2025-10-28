@@ -1,12 +1,15 @@
-export const request = async (url, method = 'GET', body) => {
+export const request = async (url, method = 'GET', body = {}) => {
     if(!url) throw new Error('Missing url')
+
+    const hasBody = body !== undefined && body !== null && method !== 'GET'
 
     const options = {
         method,
         headers: {
             'Accept': 'application/json',
             'Content-type': 'application/json',
-        }
+        },
+        ...(hasBody ? {body: JSON.stringify(body)} : {})
     }
 
     try {
