@@ -47,9 +47,7 @@ export const FooterView = () => {
 export const FormGroup = (title, name, placeholder, type, value) => {
     const element = Div()
     const label = Label(title, name)
-    const input = Input(name, placeholder, type, value)
-    console.log(input);
-    
+    const input = Input(name, placeholder, type, value)    
     element.append(label, input)
     return element
 }
