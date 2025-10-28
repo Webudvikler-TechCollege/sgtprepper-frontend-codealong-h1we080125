@@ -48,12 +48,12 @@ export const ProductDetailsView = (product) => {
     
     const element = Div('flex justify-between gap-4 p-4 border rounded-lg')
 
-    const imageCol = Div('shrink-0 w-[120px]')
-    const img = Image(`http://localhost:4000${imageUrl}`, name, 'w-[80px] flex-shrink-0 rounded')
+    const imageCol = Div('shrink-0 w-[300px]')
+    const img = Image(`http://localhost:4000${imageUrl}`, name, 'w-[90%] flex-shrink-0 rounded')
     imageCol.append(img)
 
     const infoCol = Div('flex-1 min-w-0')
-    const h3 = Heading(name,3,'font-bold')
+    const h3 = Heading(name,1,'font-bold mb-2')
     infoCol.append(h3)
 
     const p = Paragraph()

@@ -36,7 +36,7 @@ export const ProductList = async () => {
 export const ProductDetails = async (product) => {
     const data = await getDetails(product)
     const html = ProductDetailsView(data)
-    const layout = Layout('Produkt', html)
+    const layout = Layout('', html)
     return layout
     
 }

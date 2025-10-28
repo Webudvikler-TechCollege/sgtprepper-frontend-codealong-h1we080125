@@ -2,11 +2,11 @@ import { Div, Heading, Input, Label, Li, Link, Paragraph, Ul } from "../atoms/in
 
 export const HeaderView = () => {
     const element = document.createElement('header')
-    element.className = 'bg-slate-700 p-4 text-white'
+    element.className = 'bg-slate-700 p-4 text-white flex justify-between'
     const h1 = Heading('Sgt. Prepper')
     element.append(h1)
     const p = Paragraph()
-    const a = Link('/index.htm#/login', 'Login')
+    const a = Link('/index.htm#/login', 'Login', 'block bg-slate-400 px-3 py-2 rounded-lg border border-slate-800')
     p.append(a)
     element.append(p)
     return element
@@ -32,7 +32,7 @@ export const NavBarView = arrNavItems => {
 
 export const MainView = (title, content) => {
     const element = document.createElement('main')
-    element.className = "p-4 min-h-60 container"
+    element.className = "p-4 min-h-60 container m-auto flex-grow"
     const h1 = Heading(title)
     element.append(h1, content)
     return element
@@ -40,12 +40,12 @@ export const MainView = (title, content) => {
 
 export const FooterView = () => {
     const element = document.createElement('footer')
-    element.className = "h-[170px] p-4 bg-[url(./images/footer-bg.svg)] bg-center bg-no-repeat"
+    element.className = "mt-auto h-[168px] p-4 bg-[url(./images/footer-bg.svg)] bg-center bg-no-repeat"
     return element
 }
 
 export const FormGroup = (title, name, placeholder, type, value) => {
-    const element = Div()
+    const element = Div('mb-4')
     const label = Label(title, name)
     const input = Input(name, placeholder, type, value)    
     element.append(label, input)

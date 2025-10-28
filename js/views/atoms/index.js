@@ -57,7 +57,7 @@ export const Form = (method = 'GET') => {
     return element
 }
 
-export const Label = (title, id, className = 'mr-4') => {
+export const Label = (title, id, className = 'mr-4 inline-block w-[120px] after:content-[\':\']') => {
     const element = document.createElement('label')
     element.htmlFor = id
     element.innerText = title
@@ -78,7 +78,7 @@ export const Input = (name, placeholder, type = 'text', value = '', className = 
     return element
 }
 
-export const Button = (title, type = 'submit', className = 'bg-green-500 p-2 rounded shadow-md shadow-inset') => {
+export const Button = (title, type = 'submit', className = 'bg-green-500 px-3 py-2 rounded-lg shadow-md shadow-inset border') => {
     const element = document.createElement('button')
     element.type = type
     element.textContent = title
