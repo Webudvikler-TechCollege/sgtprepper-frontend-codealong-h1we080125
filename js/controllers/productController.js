@@ -1,10 +1,5 @@
-// Importerer funktioner til at hente data om produkter fra databasen (via API)
 import { getDetails, getList } from "../models/productModel.js";
-
-// Importerer funktioner, der laver HTML-visninger for produkter
 import { ProductDetailsView, ProductListView } from "../views/organisms/productViews.js";
-
-// Importerer layoutet som bruges på alle sider (fx header, footer osv.)
 import { Layout } from "./layoutController.js";
 
 // Funktion der styrer hvilken produktside der skal vises
