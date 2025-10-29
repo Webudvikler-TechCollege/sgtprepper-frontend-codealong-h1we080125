@@ -17,7 +17,8 @@ export const LoginPage = () => {
 
         // Lytter efter når brugeren trykker "Log ind"
         element.addEventListener('submit', (e) => {
-            handleLogin(e) // Kalder funktionen herunder
+            handleLogin(e);
+              // Kalder funktionen herunder
         })
 
         // Returnerer hele siden med layout og formular
@@ -41,7 +42,7 @@ export const handleLogin = async (e) => {
 
         if (data.accessToken) {
             setSessionItem('sgtprepper_token', data)
-            location.href = "./index.htm"
+            location.href = '/index.htm'
         }
     }
 }

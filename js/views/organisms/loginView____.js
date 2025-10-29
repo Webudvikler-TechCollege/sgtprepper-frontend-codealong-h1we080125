@@ -1,5 +1,5 @@
 import { deleteSessionItem } from "../../services/auth.js"
-import { Button, Form, Paragraph } from "../atoms/index.js"
+import { Button, Div, Form, Paragraph } from "../atoms/index.js"
 import { FormGroup } from "../molecules/index.js"
 
 export const LoginFormView = () => {
@@ -13,11 +13,17 @@ export const LoginFormView = () => {
 
 export const UserInfoView = (user) => {
     const element = Paragraph()
-    element.innerText = `Velkommen ${user.firstname} ${user.lastname}`
-    const button = Button('Logout', 'button')
-    button.addEventListener('click', () => {
+    element.innerText = `Velkommen ${user.firstname}`
+    const logout = Button('Log ud', 'button')
+    logout.addEventListener('click', () => {
         deleteSessionItem('sgtprepper_token')
+        if(location.hash === '#/login') {
+            location.reload()
+        } else {
+            location.href = './index.htm#/login'
+        }
+        
     })
-    element.append(button)
+    element.append(logout)
     return element
 }
