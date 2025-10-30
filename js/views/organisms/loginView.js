@@ -1,4 +1,4 @@
-import { deleteSessionItem } from "../../services/auth.js"
+import { clearToken } from "../../services/auth.js"
 import { Button, Form, Paragraph } from "../atoms/index.js"
 import { FormGroup } from "../molecules/index.js"
 
@@ -16,7 +16,7 @@ export const UserInfoView = (user) => {
     element.innerText = `Velkommen ${user.firstname} ${user.lastname}`
     const button = Button('Logout', 'button')
     button.addEventListener('click', () => {
-        deleteSessionItem('sgtprepper_token')
+        clearToken()
     })
     element.append(button)
     return element
