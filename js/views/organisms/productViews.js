@@ -1,5 +1,5 @@
 import { price2Dkk } from "../../utils/index.js";
-import { Div, Fragment, Heading, Image, Link, Paragraph } from "../atoms/index.js"
+import { Button, Div, Form, Fragment, Heading, Image, Input, Link, Paragraph } from "../atoms/index.js"
 
 export const ProductListView = (products, category) => {
     // Opretter fragment (blank html tag)
@@ -45,7 +45,7 @@ export const ProductListView = (products, category) => {
 
 export const ProductDetailsView = (product) => {
     const { id, name, imageUrl, description, price } = product
-    
+
     const element = Div('flex justify-between gap-4 p-4 border rounded-lg')
 
     const imageCol = Div('shrink-0 w-[300px]')
@@ -59,6 +59,14 @@ export const ProductDetailsView = (product) => {
     const p = Paragraph()
     p.innerHTML = description
     infoCol.append(p)
+
+    const form = Form('POST')
+    const productId = Input('productId','','hidden',id)
+    const quantity = Input('quantity', '', 'number', 1)
+    const button = Button('Læg i kurv', 'submit')
+
+    form.append(productId,quantity,button)
+    infoCol.append(form)
 
     const priceCol = Div('text-2xl')
     priceCol.innerHTML = price2Dkk(price)

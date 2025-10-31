@@ -7,6 +7,9 @@ export const request = async (url, method = 'GET', body = {}) => {
     // Stopper funktionen, hvis der ikke er angivet en URL
     if (!url) throw new Error('Missing url')
 
+    //console.log(body);
+    
+
     // Henter token fra sessionStorage
     const token = getToken()
 
