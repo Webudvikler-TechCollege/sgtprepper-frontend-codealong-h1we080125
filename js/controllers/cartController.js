@@ -39,8 +39,5 @@ const attachCartListEvents = (container) => {
             const cartId = e.target.dataset.cartid
             removeFromCart(cartId)            
         })
-        
     });
-    
-    
 }
