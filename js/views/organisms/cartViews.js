@@ -50,7 +50,7 @@ export const cartTotalView = totalPrice => {
     const textCol = Div('w-[70%] font-bold')
     textCol.innerText = 'Total'
 
-    const totalCol = Div('w-[20%] text-right font-bold')
+    const totalCol = Div('w-[20%] text-right')
     totalCol.innerText = price2Dkk(totalPrice)
 
     const spacerCol = Div('w-[10%]')

@@ -1,10 +1,13 @@
 import { addToCart } from "../models/cartModel.js";
 import { getDetails, getList } from "../models/productModel.js";
+import { isLoggedIn } from "../services/auth.js";
 import { ProductDetailsView, ProductListView } from "../views/organisms/productViews.js";
 import { Layout } from "./layoutController.js";
 
 // Funktion der styrer hvilken produktside der skal vises
 export const ProductPage = async () => {
+    isLoggedIn()
+
     // Henter værdier fra URL'en (fx ?category=mad&product=123)
     const { category = 'vand-og-vandrensning', product } = Object.fromEntries(new URLSearchParams(location.search));
     let html = ''
