@@ -1,4 +1,4 @@
-import { getCartList } from "../models/cartModel.js"
+import { getCartList, removeFromCart } from "../models/cartModel.js"
 import { isLoggedIn } from "../services/auth.js"
 import { Div } from "../views/atoms/index.js"
 import { cartListHeaderView, cartListView, cartTotalView } from "../views/organisms/cartViews.js"
@@ -9,7 +9,6 @@ export const CartPage = async () => {
         location.href = '/index.htm#/login'
         return false
     }
-
 
     const data = await getCartList()
 
@@ -28,8 +27,20 @@ export const CartPage = async () => {
     html.append(cartListHeaderView(arrHeaderColumns))
     html.append(cartListView(data))
     html.append(cartTotalView(totalPrice))
-
-
+    attachCartListEvents(html)
 
     return Layout('Indkøbskurv', html)
+}
+
+const attachCartListEvents = (container) => {
+    const deleteBtns = container.querySelectorAll('button[data-cartid]')
+    deleteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const cartId = e.target.dataset.cartid
+            removeFromCart(cartId)            
+        })
+        
+    });
+    
+    
 }

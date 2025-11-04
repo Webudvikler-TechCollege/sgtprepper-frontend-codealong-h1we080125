@@ -42,6 +42,7 @@ export const isTokenExpired = accessToken => {
         }   
         return false     
     } catch (error) {
+        console.error(error);
         
     }
 }
@@ -57,4 +58,6 @@ export const isLoggedIn = () => {
         clearToken()
         return false
     }
+
+    return true
 }
